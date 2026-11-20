@@ -38,7 +38,7 @@ pipeline {
                     )
                 ]) {
                     sh '''
-                        mvn sonar:sonar \
+                        mvn org.sonarsource.scanner.maven:sonar-maven-plugin:5.5.0.6356:sonar \
                           -Dsonar.host.url=https://sonarcloud.io \
                           -Dsonar.organization=navaneethasita \
                           -Dsonar.projectKey=Navaneethasita_devops-employee-portal \
