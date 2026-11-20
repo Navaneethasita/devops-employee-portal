@@ -29,6 +29,25 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            steps {
+                withCredentials([
+                    string(
+                        credentialsId: 'sonar-token',
+                        variable: 'SONAR_TOKEN'
+                    )
+                ]) {
+                    sh '''
+                        mvn sonar:sonar \
+                          -Dsonar.host.url=https://sonarcloud.io \
+                          -Dsonar.organization=navaneethasita \
+                          -Dsonar.projectKey=Navaneethasita_devops-employee-portal \
+                          -Dsonar.token="$SONAR_TOKEN"
+                    '''
+                }
+            }
+        }
+
         stage('Docker Build') {
             steps {
                 sh 'docker build -t employee-portal:v${BUILD_NUMBER} .'
