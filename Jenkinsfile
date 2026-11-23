@@ -43,7 +43,7 @@ pipeline {
                           -Dsonar.organization=navaneethasita \
                           -Dsonar.projectKey=Navaneethasita_devops-employee-portal \
                           -Dsonar.token="$SONAR_TOKEN" \
-                          -Dsonar.qualitygate.wait=true	\
+                          -Dsonar.qualitygate.wait=true \
                           -Dsonar.qualitygate.timeout=300
                     '''
                 }
